@@ -45,3 +45,45 @@ p {
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+header {
+  margin-block: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  ul {
+    display: flex;
+    gap: 2rem;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    max-height: 48px;
+  }
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
