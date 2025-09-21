@@ -87,3 +87,48 @@ header {
   white-space: nowrap;
   width: 1px;
 }
+
+.two-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-around;
+  align-items: center;
+  gap: 3rem;
+
+  margin-inline: 1rem;
+}
+
+.flex-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.product__gallery > img {
+  margin-block-end: 1rem;
+  border-radius: 1rem;
+}
+
+.product__gallery__thumbnails {
+  display: flex;
+  gap: 1rem;
+
+  button {
+    background: transparent;
+    border: 0;
+    border-radius: .5rem;
+    overflow: hidden;
+    padding: 0;
+    cursor: pointer;
+  }
+}
+
+.buy-button {
+  &::before {
+    content: '';
+    display: inline-block;
+    height: 20px;
+    width: 22px;
+    background: url("../images/icon-cart.svg");
+
+  }
+}
