@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <!-- Google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Page styles -->
   <link rel="stylesheet" href="./css/styles.css">
   <title>Frontend Mentor | E-commerce product page</title>
   <style>
@@ -77,14 +82,14 @@
               <img src="./images/image-product-4-thumbnail.jpg" alt="">
             </button>
           </li>
-        </div>
+        </ul>
       </div>
-      <div class="product__desc">
-        <p>Sneaker Company</p>
+      <div class="product__content">
+        <p class="product__manufacturer">Sneaker Company</p>
 
         <h1 class="product__title">Fall Limited Edition Sneakers</h1>
 
-        <p>
+        <p class="product__desc">
           These low-profile sneakers are your perfect casual wear companion. Featuring a 
           durable rubber outer sole, they’ll withstand everything the weather can offer.
         </p>
@@ -104,7 +109,7 @@
           <s>$250.00</s>
         </p>
         <div class="flex-group">
-          <div class="flex-group">
+          <div class="flex-group product__amount-selector">
             <button>
               <span class="visually-hidden">Decrease amount by 1</span>
               <img src="./images/icon-minus.svg" alt="">
