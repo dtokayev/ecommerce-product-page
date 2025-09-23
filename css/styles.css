@@ -114,6 +114,25 @@ header {
   }
 }
 
+.base-layout {
+  --max-width: 1110px;
+  --col-width: 1rem;
+  display: grid;
+  grid-template-columns: 
+    minmax(var(--col-width), 1fr)
+    min(var(--max-width), 100% - var(--col-width) * 2)
+    minmax(var(--col-width), 1fr);
+
+  & > * {
+    grid-column: 2 / 3;
+  }
+
+  & > .full-width {
+    grid-column: 1 / -1;
+    grid-column: 2 / 3;
+  }
+}
+
 .visually-hidden {
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -131,7 +150,7 @@ header {
   align-items: center;
   gap: 3rem;
 
-  margin-inline: 1rem;
+  margin-inline: 3rem;
 }
 
 .flex-group {
@@ -139,22 +158,44 @@ header {
   gap: 1rem;
 }
 
+.horizontal-line {
+  height: 1px;
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.product {
+  gap: 8rem;
+  margin-block: 5.5rem;
+}
+
 .product__gallery > img {
-  margin-block-end: 1rem;
+  margin-block-end: 2rem;
   border-radius: 1rem;
 }
 
 .product__gallery__thumbnails {
   display: flex;
-  gap: 1rem;
+  gap: 1.7rem;
 
   button {
     background: transparent;
-    border: 0;
-    border-radius: .5rem;
+    border: 2px solid transparent;
+    border-radius: .8rem;
     overflow: hidden;
     padding: 0;
     cursor: pointer;
+  }
+
+  .selected-thumbnail {
+    position: relative;
+    border: 2px solid var(--orange);
+  
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, .7);
+    }
   }
 }
 
@@ -163,11 +204,18 @@ header {
   font-size: var(--fs-300);
   font-weight: var(--fw-bold);
   letter-spacing: .07em;
+  margin-block-end: 1rem;
 }
 
 .product__title {
   color: var(--very-dark-blue);
   font-size: var(--fs-900);
+  line-height: 1.1;
+  margin-block-end: 2.2rem;
+}
+
+.product__desc {
+  margin-block-end: 1rem;
 }
 
 .product__price {
@@ -188,6 +236,7 @@ header {
 
 .product__original-price {
   font-weight: var(--fw-bold);
+  margin-block-end: 2rem;
 }
 
 .product__amount-selector {
@@ -221,7 +270,7 @@ header {
   background-color: var(--orange);
   color: var(--very-dark-blue);
   font-weight: var(--fw-bold);
-  padding: .9em 4.8em;
+  padding: .9em 4.6em;
   cursor: pointer;
 
   display: flex;
