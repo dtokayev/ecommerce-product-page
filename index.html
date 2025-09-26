@@ -54,7 +54,7 @@
       </a>
       <a href="#">
         <span class="visually-hidden">Profile</span>
-        <img src="./images/image-avatar.png" alt="">
+        <img class="profile__image" src="./images/image-avatar.png" alt="">
       </a>
     </div>
   </header>
@@ -63,7 +63,17 @@
   <main>
     <article class="two-columns product">
       <div class="product__gallery">
-        <img src="./images/image-product-1.jpg" alt="Pair of white and brown colored sneakers laying on brown and beige floor">
+        <div class="product__gallery__img">
+          <img src="./images/image-product-1.jpg" alt="Pair of white and brown colored sneakers laying on brown and beige floor">
+          <div class="product__gallery__img__controls">
+            <button class="prev-img-btn">
+              <span class="visually-hidden">Previous image</span>
+            </button>
+            <button class="next-img-btn">
+              <span class="visually-hidden">Next image</span>
+            </button>
+          </div>
+        </div>
         <ul class="product__gallery__thumbnails">
           <li>
             <button class="selected-thumbnail">

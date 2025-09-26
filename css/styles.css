@@ -154,14 +154,17 @@ main {
 .two-columns {
   display: grid;
   align-items: center;
-  gap: 0;
+  gap: 2rem;
+  margin-block: 5.5rem;
+  margin-inline: auto;
+  max-width: 500px;
 
-  @container (width > 65ch) {
+  @container (width > 920px) {
     grid-template-columns: repeat(2, 1fr);
     gap: clamp(1px, 8vw, 8rem);
 
     margin-inline: 3rem;
-    margin-block: 5.5rem;
+    max-width: unset;
   }
 }
 
@@ -176,9 +179,31 @@ main {
   background-color: rgba(0, 0, 0, .1);
 }
 
-.product__gallery > img {
+.product__gallery__img img {
   margin-block-end: 2rem;
   border-radius: 1rem;
+}
+
+.product__gallery__img__controls {
+  display: none;
+
+  button {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .prev-img-btn {
+    background: no-repeat url("../images/icon-previous.svg") calc(50% - 1px) 50%,
+                white;
+  }
+
+  .next-img-btn {
+    background: no-repeat url("../images/icon-next.svg") calc(50% + 1px) 50%,
+                white;
+  }
 }
 
 .product__gallery__thumbnails {
@@ -204,10 +229,6 @@ main {
       inset: 0;
       background: rgba(255, 255, 255, .7);
     }
-  }
-
-  @container (width < 65ch) {
-    display: none;
   }
 }
 
@@ -309,7 +330,7 @@ main {
   }
 }
 
-@media (width < 750px) {
+@media (width < 800px) {
   header {
     margin-block: 1rem;
 
@@ -337,6 +358,39 @@ main {
 
     div {
       gap: 1.5rem;
+    }
+
+    .profile__image {
+      max-height: 32px;
+    }
+  }
+
+  .two-columns {
+    margin-block-start: 0;
+    
+    @container (width < 500px) {
+      .product__gallery__img {
+        position: relative;
+        left: -1rem;
+        width: calc(100% + 2rem);
+
+        .product__gallery__img__controls {
+          position: absolute;
+          inset: 0;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-inline: 1rem;
+        }
+      }
+
+      .product__gallery__img img {
+        border-radius: 0;
+      }
+
+      .product__gallery__thumbnails {
+        display: none;
+      }
     }
   }
 
