@@ -13,11 +13,11 @@
 
   --ff-base: 'Kumbh Sans', sans-serif;
 
-  --fs-300: .90rem;
+  --fs-300: clamp(.7rem, 1.5vw, .9rem);
   --fs-350: .95rem;
-  --fs-400: 1rem;
+  --fs-400: clamp(.94rem, 1.5vw, 1rem);
   --fs-700: 1.8rem;
-  --fs-900: 2.7rem;
+  --fs-900: clamp(1.7rem, 4vw, 2.7rem);
 }
 
 /* 1. Use a more-intuitive box-sizing model */
@@ -124,7 +124,7 @@ main {
 
 .base-layout {
   --max-width: 1110px;
-  --col-width: 1rem;
+  --col-width: 1.5rem;
   display: grid;
   grid-template-columns: 
     minmax(var(--col-width), 1fr)
@@ -154,10 +154,10 @@ main {
 .two-columns {
   display: grid;
   align-items: center;
-  gap: 2rem;
   margin-block: 5.5rem;
   margin-inline: auto;
   max-width: 500px;
+  gap: 2rem;
 
   @container (width > 920px) {
     grid-template-columns: repeat(2, 1fr);
@@ -188,8 +188,8 @@ main {
   display: none;
 
   button {
-    width: 3rem;
-    height: 3rem;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
     border: 0;
     cursor: pointer;
@@ -249,6 +249,7 @@ main {
 
 .product__desc {
   margin-block-end: 1rem;
+  font-size: var(--fs-400);
 }
 
 .product__price {
@@ -332,16 +333,17 @@ main {
 
 @media (width < 800px) {
   header {
-    margin-block: 1rem;
+    margin-block: 1rem 1.5rem;
 
     button {
       display: block;
       position: absolute;
       z-index: 999;
       left: 0;
-      padding: 1rem;
+      padding-left: 1.5rem;
       background: transparent;
       border: 0;
+      cursor: pointer;
     }
 
     .icon-hamburger {
@@ -361,18 +363,20 @@ main {
     }
 
     .profile__image {
-      max-height: 32px;
+      max-height: 24px;
     }
   }
 
   .two-columns {
     margin-block-start: 0;
-    
+
     @container (width < 500px) {
+      gap: 0;
+
       .product__gallery__img {
         position: relative;
-        left: -1rem;
-        width: calc(100% + 2rem);
+        left: -1.5rem;
+        width: calc(100% + 3rem);
 
         .product__gallery__img__controls {
           position: absolute;
@@ -390,6 +394,10 @@ main {
 
       .product__gallery__thumbnails {
         display: none;
+      }
+
+      .product__title {
+        margin-block-end: 1.4rem;
       }
     }
   }
