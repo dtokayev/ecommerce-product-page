@@ -37,3 +37,24 @@ for (let i = 0; i < thumbnails.length; i++) {
     images[currentImg].classList.add('active-img');
   });
 }
+
+const nextImgBtn = document.querySelector('.next-img-btn');
+const prevImgBtn = document.querySelector('.prev-img-btn');
+nextImgBtn.addEventListener('click', e => {
+  if (currentImg < images.length - 1) {
+    thumbnails[currentImg].classList.remove('selected-thumbnail');
+    images[currentImg].classList.remove('active-img');
+    currentImg++;
+    thumbnails[currentImg].classList.add('selected-thumbnail');
+    images[currentImg].classList.add('active-img');
+  }
+});
+prevImgBtn.addEventListener('click', e => {
+  if (currentImg > 0) {
+    thumbnails[currentImg].classList.remove('selected-thumbnail');
+    images[currentImg].classList.remove('active-img');
+    currentImg--;
+    thumbnails[currentImg].classList.add('selected-thumbnail');
+    images[currentImg].classList.add('active-img');
+  }
+});
