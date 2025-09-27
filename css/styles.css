@@ -180,9 +180,19 @@ main {
   background-color: rgba(0, 0, 0, .1);
 }
 
-.product__gallery__img img {
-  margin-block-end: 2rem;
-  border-radius: 1rem;
+.product__gallery__img {
+  li {
+    display: none;
+  }
+
+  .active-img {
+    display: block;
+  }
+
+  img {
+    margin-block-end: 2rem;
+    border-radius: 1rem;
+  }
 }
 
 .product__gallery__img__controls {
