@@ -58,3 +58,70 @@ prevImgBtn.addEventListener('click', e => {
     images[currentImg].classList.add('active-img');
   }
 });
+
+const lightbox = document.createElement('div');
+const galleryImg = document.querySelector('.product__gallery__img');
+const lightboxGallery = document.querySelector('.product__gallery').cloneNode(true);
+const lightboxThumbnails = lightboxGallery.querySelectorAll('.product__gallery__thumbnails button');
+const lightboxImages = lightboxGallery.querySelectorAll('.product__gallery__img li');
+let currentLightboxImg = 0;
+
+const lightboxCloseContainer = document.createElement('div');
+const lightboxCloseBtn = document.createElement('button');
+lightboxCloseContainer.classList.add('flex-group');
+lightboxCloseContainer.appendChild(lightboxCloseBtn);
+
+lightbox.id = 'lightbox';
+document.body.appendChild(lightbox);
+lightbox.appendChild(lightboxCloseContainer);
+lightbox.appendChild(lightboxGallery);
+
+galleryImg.addEventListener('click', e => {
+  lightboxThumbnails[currentLightboxImg].classList.remove('selected-thumbnail');
+  lightboxImages[currentLightboxImg].classList.remove('active-img');
+  currentLightboxImg = currentImg;
+  lightboxThumbnails[currentLightboxImg].classList.add('selected-thumbnail');
+  lightboxImages[currentLightboxImg].classList.add('active-img');
+  lightbox.classList.add('active');
+});
+
+lightbox.addEventListener('click', e => {
+  if (e.target !== e.currentTarget) return;
+  lightbox.classList.remove('active');
+});
+
+for (let i = 0; i < lightboxThumbnails.length; i++) {
+  lightboxThumbnails[i].addEventListener('click', e => {
+    lightboxThumbnails[currentLightboxImg].classList.remove('selected-thumbnail');
+    lightboxImages[currentLightboxImg].classList.remove('active-img');
+    currentLightboxImg = i;
+    lightboxThumbnails[currentLightboxImg].classList.add('selected-thumbnail');
+    lightboxImages[currentLightboxImg].classList.add('active-img');
+  });
+}
+
+const lightboxNextImgBtn = lightbox.querySelector('.next-img-btn');
+const lightboxPrevImgBtn = lightbox.querySelector('.prev-img-btn');
+lightboxNextImgBtn.addEventListener('click', e => {
+  if (currentLightboxImg < lightboxImages.length - 1) {
+    lightboxThumbnails[currentLightboxImg].classList.remove('selected-thumbnail');
+    lightboxImages[currentLightboxImg].classList.remove('active-img');
+    currentLightboxImg++;
+    lightboxThumbnails[currentLightboxImg].classList.add('selected-thumbnail');
+    lightboxImages[currentLightboxImg].classList.add('active-img');
+  }
+});
+
+lightboxPrevImgBtn.addEventListener('click', e => {
+  if (currentLightboxImg > 0) {
+    lightboxThumbnails[currentLightboxImg].classList.remove('selected-thumbnail');
+    lightboxImages[currentLightboxImg].classList.remove('active-img');
+    currentLightboxImg--;
+    lightboxThumbnails[currentLightboxImg].classList.add('selected-thumbnail');
+    lightboxImages[currentLightboxImg].classList.add('active-img');
+  }
+});
+
+lightboxCloseBtn.addEventListener('click', e => {
+  lightbox.classList.remove('active');
+});
