@@ -125,3 +125,9 @@ lightboxPrevImgBtn.addEventListener('click', e => {
 lightboxCloseBtn.addEventListener('click', e => {
   lightbox.classList.remove('active');
 });
+
+const cart = document.querySelector('.cart');
+const cartButton = document.querySelector('.cart__button');
+cartButton.addEventListener('click', e => {
+  cart.classList.toggle('active');
+});

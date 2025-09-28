@@ -180,6 +180,50 @@ main {
   background-color: rgba(0, 0, 0, .1);
 }
 
+.cart-profile-container {
+  position: relative;
+
+  button {
+    display: block;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    height: 2rem;
+    width: 2rem;
+  }
+}
+
+.cart {
+  --spacing: 1rem;
+
+  width: 360px;
+  position: absolute;
+  right: -4rem;
+  top: 4rem;
+  background-color: white;
+  border-radius: .5rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, .2);
+  padding: var(--spacing);
+
+  display: none;
+
+  &.active {
+    display: grid;
+    gap: var(--spacing);
+  }
+
+  @media (width < 1270px) {
+    right: 0rem;
+  }
+
+  .horizontal-line {
+    position: relative;
+    left: calc(-1 * var(--spacing));
+    width: calc(100% + 2 * var(--spacing));
+  }
+}
+
 #lightbox {
   position: fixed;
   z-index: 999;
@@ -409,7 +453,7 @@ main {
   header {
     margin-block: 1rem 1.5rem;
 
-    button {
+    [aria-controls="primary-nav"] {
       display: block;
       position: absolute;
       z-index: 999;
@@ -439,6 +483,17 @@ main {
     .profile__image {
       max-height: 24px;
     }
+
+    .cart {
+      top: 4rem;
+      z-index: 999;
+      right: -.9rem;
+      width: 95vw;
+    }
+    
+    .horizontal-line {
+      display: block;
+    }
   }
 
   .two-columns {
@@ -449,6 +504,7 @@ main {
 
       .product__gallery__img {
         position: relative;
+        z-index: 1;
         left: -1.5rem;
         width: calc(100% + 3rem);
 
