@@ -116,10 +116,6 @@ header {
     }
   }
 
-  img {
-    max-height: 48px;
-  }
-
   .profile__image {
     border: 2px solid transparent;
     border-radius: 50%;
@@ -192,6 +188,10 @@ main {
   background-color: rgba(0, 0, 0, .1);
 }
 
+.bold {
+  font-weight: var(--fw-bold);
+}
+
 .cart-profile-container {
   position: relative;
 
@@ -209,14 +209,14 @@ main {
     justify-content: center;
 
     &.profile__button {
-      height: 2.5rem;
-      width: 2.5rem;
+      height: 3.2rem;
+      width: 3.2rem;
     }
   }
 }
 
 .cart {
-  --spacing: 1rem;
+  --spacing: 1.5rem;
 
   width: 360px;
   position: absolute;
@@ -224,7 +224,7 @@ main {
   top: 4rem;
   background-color: white;
   border-radius: .5rem;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, .2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
   padding: var(--spacing);
 
   display: none;
@@ -238,10 +238,86 @@ main {
     right: 0rem;
   }
 
+  h2 {
+    font-size: var(--fs-400);
+  }
+
+
+  ul {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    li {
+      display: grid;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
   .horizontal-line {
     position: relative;
     left: calc(-1 * var(--spacing));
     width: calc(100% + 2 * var(--spacing));
+  }
+
+  .cart__list {
+    display: grid;
+    min-height: 140px;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    p {
+      place-self: center;
+      display: none;
+
+      &.active {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    .checkout-button {
+      display: none;
+      justify-self: center;
+      width: 100%;
+      padding: .9em 2.7em;
+      background-color: var(--orange);
+      border-radius: .7rem;
+      height: auto;
+      font-weight: var(--fw-bold);
+
+      &.active {
+        display: flex;
+      }
+
+      &:hover,
+      &:focus-visible {
+        background-color: rgb(from var(--orange) r g b / 0.6);
+      }
+    }
+  }
+
+  .item-img {
+    grid-row: 1 / 3;
+    border-radius: .5rem;
+  }
+
+  .item-title,
+  .item-amount {
+    grid-column: 2;
+  }
+
+  .delete-button {
+    grid-column: 3 / 4;
+    grid-row: 1 / 3;
+  }
+
+  .empty-cart-text {
+    text-align: center;
+    font-weight: var(--fw-bold);
   }
 }
 
@@ -507,10 +583,6 @@ main {
       gap: 1.5rem;
     }
 
-    .profile__image {
-      max-height: 24px;
-    }
-
     .cart {
       top: 4rem;
       z-index: 999;
@@ -520,6 +592,11 @@ main {
     
     .horizontal-line {
       display: block;
+    }
+
+    .profile__button {
+      width: 2.5rem !important;
+      height: 2.5rem !important;
     }
   }
 
