@@ -138,6 +138,7 @@ const cartListUl = document.querySelector('.cart__list ul');
 const cartEmptyMessage = document.querySelector('.cart__list p');
 const totalAmount = document.querySelector('.item-total-amount');
 const multiplier = document.querySelector('.item-multiplier');
+const cartButtonAmount = document.querySelector('.cart__button__amount');
 let cartListObject = {'Sneakers': 0};
 buyButton.addEventListener('click', e => {
   if (currentAmountText.textContent === '0') return;
@@ -148,6 +149,8 @@ buyButton.addEventListener('click', e => {
   checkoutButton.classList.add('active');
   cartEmptyMessage.classList.remove('active');
   cartListUl.classList.add('active');
+  cartButtonAmount.classList.add('active');
+  cartButtonAmount.textContent = cartListObject['Sneakers'];
 });
 
 const cartDeleteButton = document.querySelector('.delete-button');
@@ -156,4 +159,5 @@ cartDeleteButton.addEventListener('click', e => {
   checkoutButton.classList.remove('active');
   cartEmptyMessage.classList.add('active');
   cartListUl.classList.remove('active');
+  cartButtonAmount.classList.remove('active');
 });
